@@ -1,12 +1,13 @@
-function Button({ onReview }) {
+const Button = ({ label, onClick, variant = "primary", disabled = false, type = "button" }) => {
   return (
-    <section>
-      <h2>Acciones</h2>
-      <button onClick={onReview} className="task-button">
-        Revisar tareas
-      </button>
-    </section>
-  )
-}
-
-export default Button
+    <button
+      type={type}
+      className={`btn btn-${variant}`}
+      onClick={onClick}
+      disabled={disabled}
+    >
+      {label}
+    </button>
+  );
+};
+export default Button;
