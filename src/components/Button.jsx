@@ -1,4 +1,4 @@
-function ActionButton({ onReview }) {
+function Button({ onReview }) {
   return (
     <section>
       <h2>Acciones</h2>
@@ -9,4 +9,4 @@ function ActionButton({ onReview }) {
   )
 }
 
-export default ActionButton
+export default Button

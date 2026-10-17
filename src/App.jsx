@@ -2,7 +2,7 @@ import './App.css'
 import Header from './components/Header'
 import TaskSummary from './components/TaskSummary'
 import TaskList from './components/TaskList'
-import ActionButton from './components/ActionButton'
+import Button from './components/Button'
 
 function App() {
   function reviewTasks() {
@@ -16,7 +16,7 @@ function App() {
       />
       <TaskSummary total={3} />
       <TaskList title="Listado de tareas de hoy" />
-      <ActionButton onReview={reviewTasks} />
+      <Button onReview={reviewTasks} />
     </main>
   )
 }
