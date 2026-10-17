@@ -29,7 +29,7 @@ const TaskForm = ({ onAgregar, guardando }) => {
           className="form-input"
           value={titulo}
           onChange={(e) => setTitulo(e.target.value)}
-          placeholder="Ej: Estudiar para prueba de Física"
+          placeholder="Eje: Estudiar para prueba de Probabilidad y Estadistica computacional....."
           disabled={guardando}
         />
         <Button
