@@ -6,7 +6,7 @@ Integrantes:
 - Jose Arguello
 - Patricio Chaug
 - Javiera Fuentealba
-- Brandon Valdes
+- Brandon Valdés
 - Cristobal Garrido
 - Gabriel Moreno
 
