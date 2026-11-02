@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import heroImage from '../assets/hero.png';
 import cappuccinoImg from '../assets/capuccino.jpg';
 import mochaImg from '../assets/mocha.jpg';
@@ -30,44 +31,43 @@ function Inicio() {
     <>
       <section className="hero">
         <div className="contenedor-hero">
-          <div className="hero-content">
-            <h1 className="titulo">
-              El paraíso a un sorbo.
-            </h1>
-            <p className="descripcion">
-              El café puede ser el elemento fundamental para el día a día, por eso convierte tu vida en un paraíso jugoso y perfecto.
-            </p>
-            <button className="btn btn-primary">
-              Explorar más
-            </button>
-          </div>
-
           <div className="imagen-hero">
-            <img
-              src={heroImage}
-              alt="Fotografía del café"
-              loading="lazy"
-            />
+            <img src={heroImage} alt="Fotografía del café" />
+          </div>
+          <div className="hero-content">
+            <div className="hero-texto">
+              <h1 className="titulo">EL PARAÍSO A UN SORBO.</h1>
+              <p className="descripcion">
+                El café puede ser el elemento fundamental para el día a día, por eso convierte tu vida en un paraíso jugoso y perfecto.
+              </p>
+            </div>
+            <button className="btn btn-primary btn-hero">Ver más</button>
           </div>
         </div>
       </section>
 
       <section className="productos-destacados">
         <div className="titulo-productos-destacados">
-          <h2>Productos Destacados</h2>
+          <h2>PRODUCTOS DESTACADOS</h2>
         </div>
 
         <div className="productos-grid">
           {productos.map(product => (
             <article key={product.id} className="tarjeta-producto">
+              <h3 className="nombre-producto">{product.name}</h3>
+
               <div className="imagen-producto">
                 <img src={product.image} alt={product.name} />
               </div>
-              <h3 className="nombre-producto">{product.name}</h3>
-              <div className="contenido-producto">
+
+              <div className="fila-producto">
                 <strong className="precio">{product.price}</strong>
-                <button className="btn btn-añad-carro">Añadir a carrito</button>
+                <button className="btn-producto">Añadir a carrito</button>
               </div>
+
+              <Link to={`/producto/${product.id}`} className="ver-detalles">
+                Ver detalles
+              </Link>
             </article>
           ))}
         </div>
