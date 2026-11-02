@@ -1,19 +1,4 @@
-import { Link } from 'react-router-dom'
-
-function Navbar() {
-  return (
-    <nav>
-      <Link to="/">Inicio</Link>
-      <Link to="/catalogo">Catálogo</Link>
-      <Link to="/quienes-somos">Quiénes somos</Link>
-      <Link to="/contacto">Contacto</Link>
-      <Link to="/carrito">Carrito</Link>
-      <Link to="/login">Iniciar sesión</Link>
-    </nav>
-  )
-}
-
-export default Navbarimport { Link, useNavigate, useLocation } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api'
 
