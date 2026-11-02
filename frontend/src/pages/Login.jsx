@@ -50,7 +50,12 @@ function Login() {
 
       localStorage.setItem('token', resultado.token)
       localStorage.setItem('usuario', JSON.stringify(resultado.usuario))
-      navigate(desde)
+      // el admin va a su panel; el cliente vuelve a donde venía, pero nunca al panel
+      if (resultado.usuario.es_admin) {
+        navigate('/admin')
+      } else {
+        navigate(desde.startsWith('/admin') ? '/' : desde)
+      }
     } catch {
       setErrorServidor('No se pudo conectar con el servidor. Intenta de nuevo.')
     } finally {

@@ -9,12 +9,14 @@ import Pago from './pages/Pago'
 import Confirmacion from './pages/Confirmacion'
 import Contacto from './pages/Contacto'
 import QuienesSomos from './pages/QuienesSomos'
+import Admin from './pages/Admin'
 import NoEncontrada from './pages/NoEncontrada'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import RutaAdmin from './components/RutaAdmin'
 
 function App() {
-    return (
+  return (
     <>
       <Navbar />
       <main>
@@ -29,6 +31,7 @@ function App() {
           <Route path="/confirmacion" element={<Confirmacion />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/quienes-somos" element={<QuienesSomos />} />
+          <Route path="/admin" element={<RutaAdmin><Admin /></RutaAdmin>} />
           <Route path="*" element={<NoEncontrada />} />
         </Routes>
       </main>
