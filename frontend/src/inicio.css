@@ -1,0 +1,257 @@
+.btn-hero {
+  padding: 20px 80px !important;
+  font-size: 1.7rem !important;
+  border-radius: 8px !important;
+  white-space: nowrap;
+}
+
+.btn-producto {
+  min-width: 120px;
+  height: 45px;
+  border-radius: 12px;
+  background: var(--accent);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.btn-producto:hover {
+  background: var(--soft);
+  color: var(--ink);
+}
+
+.btn-producto:active {
+  transform: translateY(1px);
+}
+
+.hero {
+  max-width: 1290px;
+  margin: 0 auto;
+  padding: 40px 4vw 60px;
+}
+
+.contenedor-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+
+.imagen-hero {
+  position: relative;
+  width: 100%;
+  height: clamp(260px, 36vw, 440px);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.imagen-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 10%;
+  display: block;
+}
+
+.hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.hero-texto {
+  max-width: 640px;
+}
+
+.titulo {
+  font-size: clamp(30px, 4vw, 52px) !important;
+  color: var(--ink) !important;
+  margin: 0 0 16px 0 !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.5px !important;
+  text-align: left;
+}
+
+.descripcion {
+  color: var(--muted) !important;
+  max-width: 520px;
+  margin: 0 !important;
+  font-size: 1rem;
+  line-height: 1.7;
+  text-align: left;
+  font-weight: 500;
+}
+
+.productos-destacados {
+  max-width: 1290px;
+  margin: 0 auto;
+  padding: 32px 4vw 64px;
+}
+
+.titulo-productos-destacados {
+  display: flex;
+  justify-content: center !important;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  text-align: center !important;
+}
+
+.titulo-productos-destacados h2 {
+  font-size: 40px !important;
+  margin: 0 !important;
+  color: var(--ink) !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+}
+
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 40px;
+}
+
+.tarjeta-producto {
+  padding: 14px;
+  background: var(--surface) !important;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.nombre-producto {
+  font-size: 18px !important;
+  margin: 0 0 12px 0 !important;
+  color: var(--ink) !important;
+  font-weight: 700 !important;
+  font-family: Georgia, 'Times New Roman', serif !important;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.imagen-producto {
+  position: relative;
+  width: 100%;
+  height: 220px !important;
+  background: var(--soft) !important;
+  display: block;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.imagen-producto img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block;
+}
+
+.fila-producto {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.precio {
+  font-size: 1.5rem !important;
+  color: var(--ink) !important;
+  font-weight: 700;
+}
+
+.ver-detalles {
+  display: block;
+  margin-top: auto;
+  padding-top: 16px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--ink) !important;
+  opacity: 0.6;
+  text-decoration: underline;
+
+}
+
+.ver-detalles:hover {
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    padding: 28px 4vw 40px;
+  }
+
+  .contenedor-hero {
+    gap: 24px;
+  }
+
+  .productos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 16px 16px 32px;
+  }
+
+  .contenedor-hero {
+    gap: 20px;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .titulo {
+    font-size: clamp(26px, 7vw, 32px) !important;
+  }
+
+  .descripcion {
+    font-size: 0.95rem;
+  }
+
+  .btn-hero {
+    width: 100%;
+    height: auto;
+    margin-right: 0;
+    padding: 16px 24px !important;
+    font-size: 1rem !important;
+  }
+
+  .productos-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .titulo-productos-destacados h2 {
+    font-size: 24px !important;
+  }
+
+  .tarjeta-producto {
+    padding: 12px;
+  }
+
+  .fila-producto {
+    flex-wrap: wrap;
+  }
+
+  .btn-producto {
+    min-width: 0;
+    flex: 1;
+    height: 56px;
+  }
+
+  .btn-primary {
+    padding: 12px 24px !important;
+    font-size: 0.9rem !important;
+    width: 100%;
+  }
+}

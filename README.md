@@ -150,3 +150,17 @@ Las hicimos en Chrome con npm run dev.
 | RF13 navegación | Pasar por las tres vistas | Sin recargar ni perder nada | Filtro y búsqueda siguen al volver | Las tres vistas |
 | Ids de tareas nuevas | Crear "Tarea nueva uno" y "Tarea nueva dos" | Las dos, sin keys repetidas | Salen las dos y la consola no reclama | Lista y consola |
 | Error en tarea nueva | Completar "Tarea nueva dos" | Avisa y no cambia nada | Error 500 de la API, la tarea sigue pendiente | Mensaje rojo |
+
+## Paraíso del Café
+
+El frontend de la cafetería está en `frontend/`. Incluye la tabla de usuarios, el formulario de productos, el catálogo y los cuatro temas del sprint 1.
+
+Para iniciarlo:
+
+```sh
+cd frontend
+npm ci
+npm run dev
+```
+
+En desarrollo, el acceso de demostración es `admin1` / `admin1`. Los datos de demostración se restablecen al recargar. Consulta también [la documentación de la cafetería](README-paraiso-del-cafe.md).
