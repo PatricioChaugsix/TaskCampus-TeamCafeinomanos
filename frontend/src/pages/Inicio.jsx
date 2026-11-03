@@ -1,31 +1,13 @@
 import { Link } from 'react-router-dom';
 import heroImage from '../assets/hero.png';
-import cappuccinoImg from '../assets/capuccino.jpg';
-import mochaImg from '../assets/mocha.jpg';
-import macchiatoImg from '../assets/macchiato.jpg';
+import { useProductos, pesos } from '../productos';
 import '../inicio.css';
 
 function Inicio() {
-  const productos = [
-    {
-      id: 1,
-      name: 'Capuccino',
-      price: '$3.800',
-      image: cappuccinoImg
-    },
-    {
-      id: 2,
-      name: 'Mocha',
-      price: '$4.200',
-      image: mochaImg
-    },
-    {
-      id: 3,
-      name: 'Macchiato',
-      price: '$3.500',
-      image: macchiatoImg
-    }
-  ];
+  const { productos: inventario } = useProductos();
+  const productos = inventario.slice(0, 3).map(producto => ({
+    id: producto.id, name: producto.nombre, price: pesos.format(producto.precio), image: producto.imagen
+  }));
 
   return (
     <>
@@ -41,7 +23,7 @@ function Inicio() {
                 El café puede ser el elemento fundamental para el día a día, por eso convierte tu vida en un paraíso jugoso y perfecto.
               </p>
             </div>
-            <button className="btn btn-primary btn-hero">Ver más</button>
+            <Link to="/catalogo" className="btn btn-primary btn-hero">Ver más</Link>
           </div>
         </div>
       </section>
