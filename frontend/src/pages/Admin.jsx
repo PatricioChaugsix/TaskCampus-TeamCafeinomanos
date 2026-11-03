@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import '../wireframe.css'
 import './Admin.css'
+import AdminNav from '../components/AdminNav'
 
 function iniciales(demo) {
   const cuenta = demo ? {} : JSON.parse(localStorage.getItem('usuario') || '{}')
@@ -64,6 +65,7 @@ function Admin({ demo = false, tema = 'claro' }) {
 
   return (
     <section className="store admin-panel" data-theme={tema} aria-labelledby="admin-titulo">
+      <AdminNav />
       <header className="admin-cabecera">
         <p className="admin-etiqueta">Paraíso del Café / Administración</p>
         <h1 id="admin-titulo">Gestión de usuarios</h1>

@@ -12,6 +12,7 @@ import Confirmacion from './pages/Confirmacion'
 import Contacto from './pages/Contacto'
 import QuienesSomos from './pages/QuienesSomos'
 import Admin from './pages/Admin'
+import AdminProductos from './pages/AdminProductos'
 import NoEncontrada from './pages/NoEncontrada'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -24,7 +25,7 @@ function App() {
   })
   useEffect(() => { localStorage.setItem('tema', tema) }, [tema])
   const { pathname } = useLocation()
-  const panel = pathname === '/admin' || pathname === '/demo/admin'
+  const panel = pathname === '/admin' || pathname.startsWith('/admin/') || pathname.startsWith('/demo/admin')
   return (
     <div className="store site-shell admin-shell" data-theme={tema}>
       <Navbar tema={tema} onTemaChange={setTema} />
@@ -42,6 +43,8 @@ function App() {
           <Route path="/quienes-somos" element={<QuienesSomos />} />
           <Route path="/admin" element={<RutaAdmin><Admin tema={tema} /></RutaAdmin>} />
           <Route path="/demo/admin" element={<Admin demo tema={tema} />} />
+          <Route path="/admin/productos" element={<RutaAdmin><AdminProductos /></RutaAdmin>} />
+          <Route path="/demo/admin/productos" element={<AdminProductos />} />
           <Route path="*" element={<NoEncontrada />} />
         </Routes>
       </main>
