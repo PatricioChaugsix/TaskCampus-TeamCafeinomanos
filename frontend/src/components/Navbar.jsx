@@ -2,7 +2,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom'
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api'
 
-function Navbar() {
+function Navbar({ tema, onTemaChange }) {
   const navigate = useNavigate()
   // hace que el menú se actualice al cambiar de página (por ejemplo, después del login)
   useLocation()
@@ -11,7 +11,7 @@ function Navbar() {
   async function cerrarSesion() {
     const token = localStorage.getItem('token')
     try {
-      await fetch(`${API_URL}/logout/`, {
+      if (token && !usuario?.demo) await fetch(`${API_URL}/logout/`, {
         method: 'POST',
         headers: { Authorization: `Token ${token}` }
       })
@@ -24,7 +24,7 @@ function Navbar() {
   }
 
   return (
-    <nav>
+    <nav className="site-nav" aria-label="Navegación principal">
       <Link to="/">Inicio</Link>
       <Link to="/catalogo">Catálogo</Link>
       <Link to="/quienes-somos">Quiénes somos</Link>
@@ -39,6 +39,15 @@ function Navbar() {
       ) : (
         <Link to="/login">Iniciar sesión</Link>
       )}
+      <div className="site-theme">
+        <label htmlFor="site-tema">Apariencia</label>
+        <select id="site-tema" value={tema} onChange={evento => onTemaChange(evento.target.value)}>
+          <option value="claro">Claro</option>
+          <option value="oscuro">Oscuro</option>
+          <option value="vintage">Vintage</option>
+          <option value="pastel">Pastel</option>
+        </select>
+      </div>
     </nav>
   )
 }

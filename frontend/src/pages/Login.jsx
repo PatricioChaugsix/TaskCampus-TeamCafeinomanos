@@ -30,6 +30,22 @@ function Login() {
     e.preventDefault()
     setErrorServidor('')
 
+    // Acceso al prototipo, disponible únicamente en el servidor de desarrollo.
+    if (import.meta.env.DEV && email.trim() === 'admin1') {
+      setErrores({})
+      if (password !== 'admin1') {
+        setErrorServidor('Usuario o contraseña de demostración incorrectos.')
+        return
+      }
+      localStorage.removeItem('token')
+      localStorage.setItem('usuario', JSON.stringify({
+        id: 'admin1-demo', nombre: 'Admin1', apellido: 'Demo',
+        email: 'admin1@ejemplo.cl', es_admin: true, demo: true,
+      }))
+      navigate('/admin')
+      return
+    }
+
     const nuevos = validar()
     setErrores(nuevos)
     if (Object.keys(nuevos).length > 0) return
@@ -68,16 +84,17 @@ function Login() {
       <div className="row justify-content-center">
         <div className="col-md-6">
           <h1 className="mb-4">Iniciar sesión</h1>
+          {import.meta.env.DEV && <p className="mb-3">Acceso de demostración: usuario <strong>admin1</strong> y contraseña <strong>admin1</strong>.</p>}
 
           {errorServidor && <div className="alert alert-danger">{errorServidor}</div>}
 
           <form onSubmit={enviar} noValidate>
             <div className="mb-3">
-              <label htmlFor="email" className="form-label">Correo</label>
+              <label htmlFor="email" className="form-label">{import.meta.env.DEV ? 'Correo o usuario' : 'Correo'}</label>
               <input
                 id="email"
-                type="email"
-                autoComplete="email"
+                type={import.meta.env.DEV ? 'text' : 'email'}
+                autoComplete="username"
                 className={`form-control ${errores.email ? 'is-invalid' : ''}`}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}

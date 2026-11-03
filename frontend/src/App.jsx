@@ -1,4 +1,6 @@
-import { Routes, Route } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
+import './layout.css'
 import Inicio from './pages/Inicio'
 import Catalogo from './pages/Catalogo'
 import DetalleProducto from './pages/DetalleProducto'
@@ -16,10 +18,17 @@ import Footer from './components/Footer'
 import RutaAdmin from './components/RutaAdmin'
 
 function App() {
+  const [tema, setTema] = useState(() => {
+    const guardado = localStorage.getItem('tema')
+    return ['claro', 'oscuro', 'vintage', 'pastel'].includes(guardado) ? guardado : 'claro'
+  })
+  useEffect(() => { localStorage.setItem('tema', tema) }, [tema])
+  const { pathname } = useLocation()
+  const panel = pathname === '/admin' || pathname === '/demo/admin'
   return (
-    <>
-      <Navbar />
-      <main>
+    <div className="store site-shell admin-shell" data-theme={tema}>
+      <Navbar tema={tema} onTemaChange={setTema} />
+      <main className={panel || pathname === '/' ? undefined : 'site-page'}>
         <Routes>
           <Route path="/" element={<Inicio />} />
           <Route path="/catalogo" element={<Catalogo />} />
@@ -31,12 +40,13 @@ function App() {
           <Route path="/confirmacion" element={<Confirmacion />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/quienes-somos" element={<QuienesSomos />} />
-          <Route path="/admin" element={<RutaAdmin><Admin /></RutaAdmin>} />
+          <Route path="/admin" element={<RutaAdmin><Admin tema={tema} /></RutaAdmin>} />
+          <Route path="/demo/admin" element={<Admin demo tema={tema} />} />
           <Route path="*" element={<NoEncontrada />} />
         </Routes>
       </main>
       <Footer />
-    </>
+    </div>
   )
 }
 

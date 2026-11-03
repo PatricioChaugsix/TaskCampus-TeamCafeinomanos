@@ -1,70 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-
-:root {
-  --bg: #EEE2C9;
-  --surface: #F7EEDB;
-  --ink: #493727;
-  --muted: #756046;
-  --soft: #DFCEB0;
-  --red: #E50914;
-  --btn-hover-bg: #EF5350;
-  --btn-hover-text: #ffffff;
-}
-
-*, *::before, *::after {
-  box-sizing: border-box;
-  border-color: transparent !important;
-}
-
-html, body {
-  margin: 0;
-  background: var(--bg) !important;
-  color: var(--ink) !important;
-  font-family: 'Poppins', sans-serif !important;
-  line-height: 1.6;
-}
-
-h1, h2, h3, p {
-  margin: 0;
-  color: var(--ink) !important;
-}
-
-h1, h2, h3 {
-  font-family: 'Poppins', sans-serif !important;
-  font-weight: 700 !important;
-  line-height: 1.2;
-  font-variant: normal !important;
-  letter-spacing: -0.5px !important;
-}
-
-.btn {
-  border: 1px solid transparent !important;
-  background: var(--red) !important;
-  color: #ffffff !important;
-  cursor: pointer;
-  border-radius: 6px !important;
-  font-family: 'Poppins', sans-serif !important;
-  transition: background-color 0.25s ease, color 0.25s ease;
-  font-weight: 600;
-  padding: 10px 14px !important;
-}
-
-.btn:hover,
-.btn-primary:hover {
-  background: var(--btn-hover-bg) !important;
-  color: var(--btn-hover-text) !important;
-}
-
-.btn:active {
-  transform: translateY(1px);
-}
-
-.btn-primary {
-  padding: 12px 32px !important;
-  font-size: 1rem !important;
-  font-weight: bold !important;
-}
-
 .btn-hero {
   padding: 20px 80px !important;
   font-size: 1.7rem !important;
@@ -76,14 +9,14 @@ h1, h2, h3 {
   min-width: 120px;
   height: 45px;
   border-radius: 12px;
-  background: var(--red);
+  background: var(--accent);
   font-size: 0.95rem;
   font-weight: 600;
 }
 
 .btn-producto:hover {
-  background: var(--btn-hover-bg);
-  color: var(--btn-hover-text);
+  background: var(--soft);
+  color: var(--ink);
 }
 
 .btn-producto:active {
@@ -194,7 +127,7 @@ h1, h2, h3 {
   margin: 0 0 12px 0 !important;
   color: var(--ink) !important;
   font-weight: 700 !important;
-  font-family: 'Poppins', sans-serif !important;
+  font-family: Georgia, 'Times New Roman', serif !important;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.5px;
